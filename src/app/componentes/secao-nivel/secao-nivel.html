@@ -1,0 +1,22 @@
+<section id="nivel" class="scroll-mt-24 border-b border-white/5 bg-zinc-900/40 py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-zinc-950/80 p-8 sm:p-10 lg:p-12">
+      <h2 class="text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        {{ dados.nivel.titulo }}
+      </h2>
+      <p class="mt-6 text-center text-lg leading-relaxed text-zinc-300">
+        {{ dados.nivel.texto }}
+      </p>
+      <div class="mt-10 flex justify-center">
+        <a
+          [href]="whatsappUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center rounded-full bg-emerald-500 px-6 py-3 text-sm font-semibold text-zinc-950 shadow-lg shadow-emerald-500/25 transition hover:bg-emerald-400"
+        >
+          {{ dados.hero.ctas.principal }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

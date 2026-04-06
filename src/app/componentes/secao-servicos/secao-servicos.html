@@ -1,0 +1,87 @@
+<section id="servicos" class="scroll-mt-24 border-b border-white/5 bg-zinc-900/40 py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        {{ dados.servicosSecao.titulo }}
+      </h2>
+    </div>
+
+    <ul class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      @for (s of dados.servicos; track s.titulo) {
+        <li
+          class="group flex flex-col rounded-2xl border border-white/10 bg-zinc-950/60 p-6 shadow-xl shadow-black/20 transition hover:border-emerald-500/30 hover:bg-zinc-950"
+        >
+          <div
+            class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 ring-1 ring-emerald-500/20"
+            aria-hidden="true"
+          >
+            @switch (s.icone) {
+              @case ('peso') {
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.75"
+                    d="M6 9h12M9 6v12M15 6v12M4 9a1 1 0 011-1h2v8H5a1 1 0 01-1-1V9zm14 0a1 1 0 00-1-1h-2v8h2a1 1 0 001-1V9z"
+                  />
+                </svg>
+              }
+              @case ('corrida') {
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.75"
+                    d="M13 4L6 14h4l-1 6 7-10h-4l1-6z"
+                  />
+                </svg>
+              }
+              @case ('bike') {
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.75"
+                    d="M5 18a3 3 0 100-6 3 3 0 000 6zm14 0a3 3 0 100-6 3 3 0 000 6zM12 8l3-3h3M9 18l3-8 3 2M15 5h3"
+                  />
+                </svg>
+              }
+              @case ('martial') {
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.75"
+                    d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6L5.3 21l2.3-7-6-4.6h7.6L12 2z"
+                  />
+                </svg>
+              }
+              @case ('funcional') {
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.75"
+                    d="M4 12h16M12 4v16"
+                  />
+                </svg>
+              }
+              @case ('nutricao') {
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.75"
+                    d="M12 3c3 3 7 6 7 11a7 7 0 11-14 0c0-5 4-8 7-11z"
+                  />
+                </svg>
+              }
+            }
+          </div>
+          <h3 class="text-lg font-semibold text-white">{{ s.titulo }}</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-zinc-400">{{ s.descricao }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

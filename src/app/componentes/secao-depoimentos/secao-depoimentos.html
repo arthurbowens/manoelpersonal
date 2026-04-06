@@ -1,0 +1,55 @@
+<section id="depoimentos" class="scroll-mt-24 border-b border-white/5 bg-zinc-950 py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        {{ dados.depoimentosSecao.titulo }}
+      </h2>
+      <p class="mt-4 text-lg text-zinc-400">
+        {{ dados.depoimentosSecao.subtitulo }}
+      </p>
+    </div>
+
+    <ul class="mt-14 grid gap-8 lg:grid-cols-3">
+      @for (d of dados.depoimentos; track d.id) {
+        <li
+          class="flex flex-col rounded-2xl border border-white/10 bg-zinc-900/50 p-8 shadow-xl shadow-black/20"
+        >
+          <svg
+            class="h-8 w-8 text-emerald-500/40"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.503.9-.02 1.878.227 2.656.77 1.232.843 1.903 2.185 1.903 3.776 0 2.154-1.695 3.775-3.922 3.775-2.206 0-3.942-1.634-3.942-4.02 0-1.288.483-2.467 1.583-3.594zm12.834 0C16.387 16.227 15.834 15 15.834 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.503.9-.02 1.878.227 2.656.77 1.232.843 1.903 2.185 1.903 3.776 0 2.154-1.695 3.775-3.922 3.775-2.206 0-3.942-1.634-3.942-4.02 0-1.288.483-2.467 1.583-3.594z"
+            />
+          </svg>
+          <blockquote class="mt-4 flex-1 text-base leading-relaxed text-zinc-300">
+            <p>“{{ d.texto }}”</p>
+          </blockquote>
+          <div class="mt-8 flex items-center gap-4 border-t border-white/10 pt-6">
+            @if (d.fotoUrl) {
+              <img
+                [src]="d.fotoUrl"
+                alt=""
+                class="h-12 w-12 rounded-full object-cover ring-2 ring-emerald-500/30"
+                width="48"
+                height="48"
+              />
+            } @else {
+              <span
+                class="flex h-12 w-12 items-center justify-center rounded-full bg-zinc-800 text-xs font-semibold text-zinc-500"
+                aria-hidden="true"
+                >?</span
+              >
+            }
+            <div>
+              <p class="font-semibold text-white">{{ d.nome }}</p>
+              <p class="text-sm text-zinc-500">{{ d.papel }}</p>
+            </div>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

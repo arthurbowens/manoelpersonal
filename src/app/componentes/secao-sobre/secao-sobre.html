@@ -1,0 +1,36 @@
+<section id="sobre" class="scroll-mt-24 border-b border-white/5 bg-zinc-950 py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-14">
+      <div class="order-2 lg:order-1">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          {{ dados.sobre.titulo }}
+        </h2>
+        <div
+          class="mt-8 h-px w-24 bg-gradient-to-r from-emerald-500 to-transparent"
+          aria-hidden="true"
+        ></div>
+        <div class="mt-10 space-y-5 text-base leading-relaxed text-zinc-300">
+          @for (p of dados.sobre.paragrafos; track $index) {
+            <p>{{ p }}</p>
+          }
+        </div>
+      </div>
+
+      <div class="order-1 lg:order-2 lg:sticky lg:top-28">
+        <figure
+          class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900 shadow-xl shadow-black/30 ring-1 ring-white/5"
+        >
+          <img
+            [src]="dados.imagens.sobre"
+            alt="Manoel Ednaldo em ambiente ao ar livre, com paisagem e ponte ao fundo."
+            class="aspect-[3/4] w-full object-cover object-[center_20%] sm:aspect-[4/5]"
+            width="600"
+            height="750"
+            loading="lazy"
+          />
+          <figcaption class="sr-only">Retrato de Manoel Ednaldo em local ao ar livre.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
