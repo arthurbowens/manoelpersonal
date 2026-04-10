@@ -45,7 +45,9 @@
             }
             <div>
               <p class="font-semibold text-white">{{ d.nome }}</p>
-              <p class="text-sm text-zinc-500">{{ d.papel }}</p>
+              @if (d.papel) {
+                <p class="text-sm text-zinc-500">{{ d.papel }}</p>
+              }
             </div>
           </div>
         </li>

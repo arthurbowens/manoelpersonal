@@ -120,7 +120,7 @@ export const LANDING_DADOS = {
       nome: 'Sulayma Hamdan',
       texto:
         'Quero deixar aqui um registro sobre o personal trainer, Manoel. Profissional atencioso e comprometido, busca adaptar os treinos às necessidades de cada aluno, respeitando seus limites e incentivando a evolução.',
-      papel: 'Aluna',
+      papel: '',
       fotoUrl: null,
     },
     {
@@ -128,7 +128,7 @@ export const LANDING_DADOS = {
       nome: 'Bárbara Vieira',
       texto:
         'Gostaria de deixar registrado o quanto o Manoel se destaca como profissional. Trata-se de uma pessoa extremamente íntegra, comprometida e responsável em tudo o que se propõe a fazer. Sua postura ética é evidente, sempre conduzindo suas atividades com seriedade. Sempre demonstrando dedicação e zelo, buscando constantemente entregar resultados de qualidade e agir da melhor forma possível em cada situação.',
-      papel: 'Advogada especialista em vara de família',
+      papel: '',
       fotoUrl: null,
     },
   ] satisfies Depoimento[],
