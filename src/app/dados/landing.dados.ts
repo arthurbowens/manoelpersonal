@@ -13,12 +13,6 @@ export interface Depoimento {
   fotoUrl: string | null;
 }
 
-export interface ItemGaleria {
-  id: string;
-  legenda: string;
-  imagemUrl: string | null;
-}
-
 export const LANDING_DADOS = {
   nome: 'Manoel Ednaldo',
   /** Wordmark: base + sufixo (corpo da marca + destaque) */
@@ -34,10 +28,11 @@ export const LANDING_DADOS = {
   },
 
   contato: {
-    whatsappE164: '5511999999999',
+    /** Número internacional sem símbolos (55 + DDD + celular) */
+    whatsappE164: '5527996883318',
     whatsappMensagemPadrao:
       'Olá, Manoel! Vi seu site e quero começar. Meu objetivo é: ',
-    instagram: null as string | null,
+    instagram: 'https://www.instagram.com/manoel_personaltrainer/',
     email: null as string | null,
   },
 
@@ -114,45 +109,26 @@ export const LANDING_DADOS = {
     ],
   },
 
-  galeriaSecao: {
-    titulo: 'Na prática',
-    subtitulo: 'Treino, aulas na academia e corrida — método aplicado no dia a dia.',
-  },
-
-  galeria: [
-    { id: 'g1', legenda: 'Treino e técnica', imagemUrl: null },
-    { id: 'g2', legenda: 'Aulas e equipamentos', imagemUrl: null },
-    { id: 'g3', legenda: 'Momentos na academia', imagemUrl: null },
-    { id: 'g4', legenda: 'Corrida e performance', imagemUrl: null },
-  ] satisfies ItemGaleria[],
-
   depoimentosSecao: {
     titulo: 'Resultados de quem já treina',
-    subtitulo: 'Quem acompanha de perto sente a diferença na técnica e na evolução.',
+    subtitulo: 'Depoimentos reais de quem já foi acompanhado pelo Manoel.',
   },
 
   depoimentos: [
     {
       id: '1',
-      nome: 'Aluno',
+      nome: 'Sulayma Hamdan',
       texto:
-        'Treinos bem explicados, acompanhamento de verdade. Evoluí muito mais rápido do que treinando sozinho.',
-      papel: 'Musculação',
+        'Quero deixar aqui um registro sobre o personal trainer, Manoel. Profissional atencioso e comprometido, busca adaptar os treinos às necessidades de cada aluno, respeitando seus limites e incentivando a evolução.',
+      papel: 'Aluna',
       fotoUrl: null,
     },
     {
       id: '2',
-      nome: 'Aluna',
+      nome: 'Bárbara Vieira',
       texto:
-        'Corrida com planejamento e sem lesão. Finalmente consegui manter constância.',
-      papel: 'Corrida',
-      fotoUrl: null,
-    },
-    {
-      id: '3',
-      nome: 'Aluno',
-      texto: 'Aulas de bike intensas mas seguras — rendimento subiu muito.',
-      papel: 'Spinning',
+        'Gostaria de deixar registrado o quanto o Manoel se destaca como profissional. Trata-se de uma pessoa extremamente íntegra, comprometida e responsável em tudo o que se propõe a fazer. Sua postura ética é evidente, sempre conduzindo suas atividades com seriedade. Sempre demonstrando dedicação e zelo, buscando constantemente entregar resultados de qualidade e agir da melhor forma possível em cada situação.',
+      papel: 'Advogada especialista em vara de família',
       fotoUrl: null,
     },
   ] satisfies Depoimento[],
@@ -173,8 +149,6 @@ export const LANDING_DADOS = {
 
   rodape: {
     direitos: 'Manoel Ednaldo. Todos os direitos reservados.',
-    aviso:
-      'Serviços de educação física dentro da legislação e competências do profissional. Não substitui avaliação médica quando necessária.',
   },
 } as const;
 

@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { LANDING_DADOS } from '../../dados/landing.dados';
+import { LANDING_DADOS, urlWhatsApp } from '../../dados/landing.dados';
 
 @Component({
   selector: 'app-cabecalho',
@@ -8,6 +8,7 @@ import { LANDING_DADOS } from '../../dados/landing.dados';
 })
 export class Cabecalho {
   protected readonly dados = LANDING_DADOS;
+  protected readonly whatsappUrl = urlWhatsApp();
 
   protected readonly menuAberto = signal(false);
 
