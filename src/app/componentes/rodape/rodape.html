@@ -10,12 +10,11 @@
         </p>
         <p class="mt-2 text-sm text-zinc-500">{{ dados.nome }} · {{ dados.cargo }}</p>
         <div class="mt-4 flex flex-wrap items-center gap-3">
-          <a
-            [href]="whatsappUrl"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
             class="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2 text-sm text-zinc-300 transition hover:border-emerald-500/30 hover:text-emerald-300"
             aria-label="Conversar no WhatsApp"
+            (click)="abrirWhatsapp()"
           >
             <svg class="h-5 w-5 text-emerald-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -23,7 +22,7 @@
               />
             </svg>
             WhatsApp
-          </a>
+          </button>
           <a
             [href]="dados.contato.instagram"
             target="_blank"

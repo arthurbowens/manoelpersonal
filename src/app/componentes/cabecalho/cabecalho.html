@@ -79,12 +79,10 @@
           </svg>
         </a>
       }
-      <a
-        [href]="whatsappUrl"
-        target="_blank"
-        rel="noopener noreferrer"
+      <button
+        type="button"
         class="inline-flex items-center gap-2 rounded-full bg-emerald-500 px-3.5 py-2.5 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(52,211,153,0.35),0_8px_32px_-8px_rgba(16,185,129,0.45)] transition hover:bg-emerald-400 hover:shadow-[0_0_0_1px_rgba(52,211,153,0.5),0_12px_36px_-8px_rgba(16,185,129,0.55)]"
-        (click)="fecharMenu()"
+        (click)="abrirWhatsapp()"
       >
         <svg class="h-[18px] w-[18px]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path
@@ -92,7 +90,7 @@
           />
         </svg>
         <span>WhatsApp</span>
-      </a>
+      </button>
 
       <button
         type="button"

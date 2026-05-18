@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { LANDING_DADOS, urlWhatsApp } from '../../dados/landing.dados';
+import { Component, inject } from '@angular/core';
+import { LANDING_DADOS } from '../../dados/landing.dados';
+import { WhatsappContatoService } from '../../servicos/whatsapp-contato.service';
 
 @Component({
   selector: 'app-secao-contato',
@@ -8,5 +9,9 @@ import { LANDING_DADOS, urlWhatsApp } from '../../dados/landing.dados';
 })
 export class SecaoContato {
   protected readonly dados = LANDING_DADOS;
-  protected readonly whatsappUrl = urlWhatsApp();
+  protected readonly whatsapp = inject(WhatsappContatoService);
+
+  protected abrirWhatsapp(): void {
+    this.whatsapp.abrir();
+  }
 }

@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
-import { LANDING_DADOS, urlWhatsApp } from '../../dados/landing.dados';
+import { Component, inject, signal } from '@angular/core';
+import { LANDING_DADOS } from '../../dados/landing.dados';
+import { WhatsappContatoService } from '../../servicos/whatsapp-contato.service';
 
 @Component({
   selector: 'app-cabecalho',
@@ -8,9 +9,14 @@ import { LANDING_DADOS, urlWhatsApp } from '../../dados/landing.dados';
 })
 export class Cabecalho {
   protected readonly dados = LANDING_DADOS;
-  protected readonly whatsappUrl = urlWhatsApp();
+  protected readonly whatsapp = inject(WhatsappContatoService);
 
   protected readonly menuAberto = signal(false);
+
+  protected abrirWhatsapp(): void {
+    this.whatsapp.abrir();
+    this.fecharMenu();
+  }
 
   protected alternarMenu(): void {
     this.menuAberto.update((aberto) => !aberto);

@@ -30,10 +30,42 @@ export const LANDING_DADOS = {
   contato: {
     /** Número internacional sem símbolos (55 + DDD + celular) */
     whatsappE164: '5527996883318',
-    whatsappMensagemPadrao:
-      'Olá, Manoel! Vi seu site e quero começar. Meu objetivo é: ',
     instagram: 'https://www.instagram.com/manoel_personaltrainer/',
     email: null as string | null,
+  },
+
+  whatsappFormulario: {
+    titulo: 'Falar com o Manoel no WhatsApp',
+    subtitulo: 'Escolha seu objetivo. A mensagem já vai pronta para você enviar.',
+    labelNome: 'Seu nome (opcional)',
+    placeholderNome: 'Como posso te chamar?',
+    labelObjetivo: 'Qual é seu objetivo?',
+    labelOutro: 'Descreva seu objetivo',
+    placeholderOutro: 'Ex.: voltar a treinar após lesão',
+    botaoEnviar: 'Abrir conversa no WhatsApp',
+    botaoCancelar: 'Cancelar',
+    erroObjetivo: 'Selecione um objetivo para continuar.',
+    erroOutro: 'Descreva seu objetivo para continuar.',
+    objetivos: [
+      { id: 'emagrecimento', rotulo: 'Emagrecimento', textoMensagem: 'emagrecimento' },
+      {
+        id: 'hipertrofia',
+        rotulo: 'Hipertrofia / ganho de massa',
+        textoMensagem: 'hipertrofia',
+      },
+      {
+        id: 'condicionamento',
+        rotulo: 'Condicionamento físico',
+        textoMensagem: 'condicionamento físico',
+      },
+      { id: 'corrida', rotulo: 'Melhorar na corrida', textoMensagem: 'melhorar na corrida' },
+      {
+        id: 'musculacao',
+        rotulo: 'Musculação com acompanhamento',
+        textoMensagem: 'musculação com acompanhamento',
+      },
+      { id: 'outro', rotulo: 'Outro objetivo', textoMensagem: '' },
+    ],
   },
 
   hero: {
@@ -152,8 +184,26 @@ export const LANDING_DADOS = {
   },
 } as const;
 
-export function urlWhatsApp(): string {
-  const { whatsappE164, whatsappMensagemPadrao } = LANDING_DADOS.contato;
-  const texto = encodeURIComponent(whatsappMensagemPadrao);
-  return `https://wa.me/${whatsappE164}?text=${texto}`;
+export function montarUrlWhatsApp(params: {
+  objetivoId: string;
+  nome?: string;
+  outroTexto?: string;
+}): string {
+  const { whatsappE164 } = LANDING_DADOS.contato;
+  const objetivo = LANDING_DADOS.whatsappFormulario.objetivos.find(
+    (item) => item.id === params.objetivoId,
+  );
+
+  const textoObjetivo =
+    params.objetivoId === 'outro'
+      ? params.outroTexto?.trim() ?? ''
+      : objetivo?.textoMensagem ?? '';
+
+  let mensagem = `Olá, Manoel! Vi seu site e meu objetivo é ${textoObjetivo}.`;
+
+  if (params.nome?.trim()) {
+    mensagem += ` Meu nome é ${params.nome.trim()}.`;
+  }
+
+  return `https://wa.me/${whatsappE164}?text=${encodeURIComponent(mensagem)}`;
 }

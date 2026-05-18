@@ -13,12 +13,11 @@
           </p>
         </div>
         <div class="flex flex-col gap-4">
-          <a
-            [href]="whatsappUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-3 rounded-2xl bg-emerald-500 px-6 py-4 text-center text-base font-semibold text-zinc-950 shadow-xl shadow-emerald-500/25 transition hover:bg-emerald-400"
+          <button
+            type="button"
+            class="inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-emerald-500 px-6 py-4 text-center text-base font-semibold text-zinc-950 shadow-xl shadow-emerald-500/25 transition hover:bg-emerald-400"
             aria-label="Conversar no WhatsApp"
+            (click)="abrirWhatsapp()"
           >
             <svg class="h-7 w-7 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -26,7 +25,7 @@
               />
             </svg>
             <span>{{ dados.ctaFinal.botao }}</span>
-          </a>
+          </button>
           <p class="text-center text-sm text-zinc-500 lg:text-left">{{ dados.ctaFinal.microcopy }}</p>
 
           <a
